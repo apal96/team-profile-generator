@@ -1,5 +1,6 @@
 # Team-Profile-Generator
 The team profile generator will generate a webpage with the information about members of a team.
+The program allows a user to choose between a manager, engineer, or intern and enter data based on their choice. The data is then used to populate an html page with the teams information.
 
 ## Getting Started
 

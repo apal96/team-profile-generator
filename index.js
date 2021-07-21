@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Manager = require('./classes/Manager');
+const Engineer = require('./classes/Engineer');
+const Intern = require('./classes/Intern');
 
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) =>
@@ -25,8 +27,9 @@ function generateHTML(data) {
       <body>
           <div class="container-fluid">
             <header class="row">
-            <h1>My Team ${data.teamMember}</h1>
+            <h1>My Team </h1>
              </header>
+             <div>${data.teamMember}</div>
     
     
           </div>
@@ -60,12 +63,13 @@ function getInfo(employeeType) {
             }
 
         ]).then(answers => {
-            const manager = new Manager(answers.managerName,answers.managerId,answers.managerEmail,answers.managerNumber)
+            const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerNumber)
             console.log(manager);
             init();
         })
     }
-    if (employeeType === "Engineer") {
+    else if (employeeType === "Engineer") {
+        console.log("HEllo Engineer")
         inquirer.prompt([
             {
                 type: 'input',
@@ -89,11 +93,12 @@ function getInfo(employeeType) {
             }
 
         ]).then(answers => {
-            const engineer = new Engineer(answers.engineerName,answers.engineerId,answers.engineerEmail,answers.engineerGit)
+            const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGit)
+            console.log(engineer)
             init();
         })
     }
-    if (employeeType === "Intern") {
+    else if (employeeType === "Intern") {
         inquirer.prompt([
             {
                 type: 'input',
@@ -117,18 +122,19 @@ function getInfo(employeeType) {
             }
 
         ]).then(answers => {
-            const intern = new Intern(answers.internName,answers.internId,answers.internEmail,answers.internSchool)
+            const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool)
+            console.log(intern)
             init();
         })
     }
-    if (employeeType === "None") {
+    else if (employeeType === "None") {
         console.log("Thank you")
-       
     }
+
     // console.log(manager);
     // writeToFile('index.html',generateHTML(answers.internName));
 
-}
+};
 function init() {
     inquirer.prompt([
         {
@@ -140,8 +146,11 @@ function init() {
         }]).then((response) => {
             console.log(response);
             console.log(response.teamMember);
+
+
+            writeToFile('index.html', generateHTML(response));
             getInfo(response.teamMember);
-           
+
 
         })
 };

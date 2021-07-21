@@ -1,60 +1,74 @@
 const Engineer = require("../classes/Engineer.js")
 
-describe("Engineer",()=>{
-    describe("Initialization",()=>{
-        it("should return an object with name,id, and email properties",()=>{
+describe("Engineer", () => {
+    describe("Initialization", () => {
+        it("should return an object with name,id, and email properties", () => {
             const engineerObj = {
                 name: "Alisha",
-                id:"12345",
-                email:"email@email.com",
-                github:"github"
+                id: "12345",
+                email: "email@email.com",
+                github: "github"
             }
-           
-            const obj = new Engineer("Alisha","12345","email@email.com","github");
+
+            const obj = new Engineer("Alisha", "12345", "email@email.com", "github");
             const result = obj;
             expect(result).toEqual(engineerObj);
         })
     })
-    // describe("getName",()=>{
-    //     it("should return the Employee objects 'name'value ",()=>{
-    //         const employeeObj = {
-    //             name: "Alisha",
-    //             id:"12345",
-    //             email:"email@email.com"
-    //         }
-    //         const obj = new Employee(employeeObj.name,"12345","email@email.com");
-    //         const result = obj;
-    //         expect(result).toEqual(employeeObj);
+    describe("getName", () => {
+        it("should return the Engineer objects 'name'value ", () => {
+            const engineerObj = {
+                name: "Alisha",
+                id: "12345",
+                email: "email@email.com",
+                github: "github"
+            }
+            const obj = new Engineer(engineerObj.name, "12345", "email@email.com", "github");
+            const result = obj;
+            expect(result).toEqual(engineerObj);
 
-    //     })
-    // })
-    // describe("getId",()=>{
-    //     it("should return the Employee objects 'name'value ",()=>{
-    //         const employeeObj = {
-    //             name: "Alisha",
-    //             id:"12345",
-    //             email:"email@email.com"
-    //         }
-    //         const obj = new Employee("Alisha",employeeObj.id,"email@email.com");
-    //         const result = obj;
-    //         expect(result).toEqual(employeeObj);
+        })
+    })
+    describe("getId", () => {
+        it("should return the Engineer objects 'id'value ", () => {
+            const engineerObj = {
+                name: "Alisha",
+                id: "12345",
+                email: "email@email.com",
+                github: "github"
+            }
+            const obj = new Engineer("Alisha", engineerObj.id, "email@email.com", "github");
+            const result = obj;
+            expect(result).toEqual(engineerObj);
 
-    //     })
-    // })
-    // describe("getEmail",()=>{
-    //     it("should return the Employee objects 'name'value ",()=>{
-    //         const employeeObj = {
-    //             name: "Alisha",
-    //             id:"12345",
-    //             email:"email@email.com"
-    //         }
-    //         const obj = new Employee("Alisha","12345",employeeObj.email);
-    //         const result = obj;
-    //         expect(result).toEqual(employeeObj);
+        })
+    })
+    describe("getEmail", () => {
+        it("should return the Engineer objects 'email'value ", () => {
+            const engineerObj = {
+                name: "Alisha",
+                id: "12345",
+                email: "email@email.com",
+                github: "github"
+            }
+            const obj = new Engineer("Alisha", "12345", engineerObj.email, "github");
+            const result = obj;
+            expect(result).toEqual(engineerObj);
 
-    //     })
-    // })
+        })
+    })
+    describe("getGithub", () => {
+        it("should return the Engineer objects 'github'value ", () => {
+            const engineerObj = {
+                name: "Alisha",
+                id: "12345",
+                email: "email@email.com",
+                github: "github"
+            }
+            const obj = new Engineer("Alisha", "12345", "email@email.com", engineerObj.github);
+            const result = obj;
+            expect(result).toEqual(engineerObj);
 
-
-
+        })
+    })
 })
